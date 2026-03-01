@@ -54,10 +54,10 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector(
-      "[data-testimonials-title]"
+      "[data-testimonials-title]",
     ).innerHTML;
     modalText.innerHTML = this.querySelector(
-      "[data-testimonials-text]"
+      "[data-testimonials-text]",
     ).innerHTML;
 
     testimonialsModalFunc();
@@ -171,7 +171,7 @@ function showSlide(index) {
   // Show current slide
   const currentSlide = document.querySelector(`[data-slide="${index}"]`);
   const currentIndicator = document.querySelector(
-    `.indicator[data-slide="${index}"]`
+    `.indicator[data-slide="${index}"]`,
   );
 
   if (currentSlide) currentSlide.classList.add("active");

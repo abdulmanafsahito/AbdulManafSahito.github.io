@@ -813,29 +813,89 @@
             <h2 class="h2 article-title">Resume</h2>
           </header>
 
+          <!-- ───────────────────────── EDUCATION ───────────────────────── -->
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
                 <ion-icon name="book-outline"></ion-icon>
               </div>
-
               <h3 class="h3">Education</h3>
             </div>
 
             <ol class="timeline-list">
+              <!-- MS -->
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">
                   SUKKUR IBA UNIVERSITY, Sukkur
                 </h4>
-
                 <span
-                  data-start-date="2025-01"
-                  data-end-date="2026-12"
+                  data-start-date="2024-01"
+                  data-end-date="2025-12"
                   class="dynamic-date"
                 >
-                  MS(CS) 2025 — 2026</span
+                  MS(CS) Jan 2024 — Dec 2025
+                </span>
+                <p
+                  class="timeline-text"
+                  style="
+                    margin-top: 0.4rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 0.35rem;
+                  "
                 >
+                  <strong>CGPA: 3.45</strong>
+                  <span style="color: var(--light-gray)" aria-hidden="true"
+                    >·</span
+                  >
+                  <strong style="color: var(--orange-yellow-crayola)"
+                    >🏆 Ranked #1 in MS CS Batch</strong
+                  >
+                  <span style="color: var(--light-gray)" aria-hidden="true"
+                    >·</span
+                  >
+                  <span
+                    style="
+                      padding: 0.2rem 0.5rem;
+                      background: #01411c;
+                      color: white;
+                      border-radius: 4px;
+                      font-size: 0.8rem;
+                      font-weight: 500;
+                    "
+                    >PM's Youth Laptop Scheme 2025 (Hunarmand Pakistan)</span
+                  >
+                </p>
 
+                <!-- Key MS coursework -->
+                <div
+                  style="
+                    margin-top: 0.75rem;
+                    padding: 0.75rem;
+                    background: var(--eerie-black-2);
+                    border-radius: 8px;
+                  "
+                >
+                  <p
+                    style="
+                      color: var(--light-gray);
+                      font-size: 0.82rem;
+                      line-height: 1.5;
+                      margin: 0;
+                    "
+                  >
+                    <strong style="color: var(--white-2)"
+                      >Key Coursework:</strong
+                    >
+                    Advanced NLP (A) &nbsp;·&nbsp; Advanced Machine Learning
+                    (A−) &nbsp;·&nbsp; Advanced Computer Vision &nbsp;·&nbsp;
+                    Advanced Cyber Security &nbsp;·&nbsp; Research Methodologies
+                    (A−) &nbsp;·&nbsp; Advanced Analysis of Algorithms
+                  </p>
+                </div>
+
+                <!-- Thesis -->
                 <div
                   class="thesis-section"
                   style="
@@ -853,7 +913,7 @@
                       font-size: 0.95rem;
                     "
                   >
-                    Master's Thesis (In Progress):
+                    Master's Thesis:
                   </h5>
                   <h6
                     style="
@@ -875,14 +935,80 @@
                       margin-bottom: 0.75rem;
                     "
                   >
-                    Currently working on developing an innovative multimodal
-                    framework that combines computer vision and natural language
-                    processing to automatically generate detailed lesion
-                    descriptions from medical images using region of interest
-                    (ROI) guidance and advanced vision-language models.
+                    Developed an ROI-guided multimodal pipeline comparing four
+                    Vision-Language Models — MedFlamingo, MedLLaVA, MedGemma,
+                    and Qwen2-VL — across full fine-tuning, LoRA, and zero-shot
+                    strategies. Evaluated on MedTrinity-25M using RAGAS metrics,
+                    uncovering architecture-dependent ROI effects and a critical
+                    semantic similarity–factual correctness gap in medical AI.
                   </p>
+
+                  <!-- supervisor and co-supervisor -->
+                  <p
+                    style="
+                      color: var(--white-2);
+                      font-size: 0.85rem;
+                      line-height: 1.5;
+                      margin-bottom: 0.75rem;
+                    "
+                  >
+                    Supervisor: <strong>Dr. Ghulam Mujtaba Shaikh</strong>
+                    <a
+                      href="https://scholar.google.com/citations?user=bIES0VQAAAAJ&hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style="
+                        display: inline-block;
+                        margin-left: 0.5rem;
+                        padding: 0.1rem 0.6rem;
+                        font-size: 0.75rem;
+                        background: var(--orange-yellow-crayola);
+                        color: var(--smoky-black);
+                        border-radius: 4px;
+                        text-decoration: none;
+                        font-weight: 500;
+                      "
+                      >See profile</a
+                    >
+                    <br />
+                    Co-Supervisor: <strong>Dr. Sher Muhammad Daudpota</strong>
+                    <a
+                      href="https://scholar.google.com/citations?user=ayUdgpkAAAAJ&hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style="
+                        display: inline-block;
+                        margin-left: 0.5rem;
+                        padding: 0.1rem 0.6rem;
+                        font-size: 0.75rem;
+                        background: var(--orange-yellow-crayola);
+                        color: var(--smoky-black);
+                        border-radius: 4px;
+                        text-decoration: none;
+                        font-weight: 500;
+                      "
+                      >See profile</a
+                    >
+                  </p>
+                  <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+                    <a
+                      href="https://github.com/abdulmanafsahito/Thesis-Work"
+                      target="_blank"
+                      style="
+                        color: var(--orange-yellow-crayola);
+                        text-decoration: none;
+                        font-size: 0.85rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                      "
+                    >
+                      <ion-icon name="logo-github"></ion-icon> View Code
+                    </a>
+                  </div>
                 </div>
 
+                <!-- NTNU highlight -->
                 <div
                   class="achievement-highlight"
                   style="
@@ -904,7 +1030,7 @@
                       font-weight: 600;
                     "
                   >
-                    🏆 Key Achievement:
+                    🌍 International Research Exchange:
                   </h6>
                   <p
                     style="
@@ -914,27 +1040,108 @@
                       opacity: 0.95;
                     "
                   >
-                    Selected for a fully-funded 4-month Research Fellowship at
-                    Norwegian University of Science and Technology (NTNU),
-                    Norway, as part of the NORPART-CONNECT Project (January 2025
-                    - May 2025).
+                    Selected for a fully-funded 6-month Research Fellowship at
+                    the Norwegian University of Science and Technology (NTNU),
+                    Gjøvik, Norway — NORPART-CONNECT Project (Jan 2025 – Jul
+                    2025), collaborating with the Intelligent Systems &amp;
+                    Analytics (ISA) Research Group.
+                    <span
+                      style="
+                        display: inline-flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-top: 0.5rem;
+                      "
+                    >
+                      <a
+                        href="#ntnu"
+                        style="
+                          display: inline-block;
+                          padding: 0.3rem 0.65rem;
+                          font-size: 0.8rem;
+                          background: rgba(255, 255, 255, 0.95);
+                          color: #5a67d8;
+                          border-radius: 4px;
+                          text-decoration: none;
+                          font-weight: 500;
+                        "
+                        >View outcomes</a
+                      >
+                      <a
+                        href="#ntnu-exchange"
+                        class="ntnu-exchange-link"
+                        style="
+                          display: inline-block;
+                          padding: 0.3rem 0.65rem;
+                          font-size: 0.8rem;
+                          background: rgba(255, 255, 255, 0.95);
+                          color: #5a67d8;
+                          border-radius: 4px;
+                          text-decoration: none;
+                          font-weight: 500;
+                        "
+                        >View exchange</a
+                      >
+                      <a
+                        href="./assets/images/certificates/Confirmation_Student_Status_Digitally_Signed.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="
+                          display: inline-block;
+                          padding: 0.3rem 0.65rem;
+                          font-size: 0.8rem;
+                          background: rgba(255, 255, 255, 0.95);
+                          color: #5a67d8;
+                          border-radius: 4px;
+                          text-decoration: none;
+                          font-weight: 500;
+                        "
+                        >View Certificate</a
+                      >
+                    </span>
                   </p>
                 </div>
               </li>
 
+              <!-- BS -->
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">
                   SUKKUR IBA UNIVERSITY, Sukkur
                 </h4>
-
                 <span
                   data-start-date="2019-08"
                   data-end-date="2023-06"
                   class="dynamic-date"
-                  >BS(CS) 2019 — 2023</span
                 >
-
-                <p class="timeline-text">CGPA: 3.1</p>
+                  BS(CS) Aug 2019 — Aug 2023
+                </span>
+                <p class="timeline-text"><strong>CGPA: 3.08</strong></p>
+                <div
+                  style="
+                    margin-top: 0.75rem;
+                    padding: 0.75rem;
+                    background: var(--eerie-black-2);
+                    border-radius: 8px;
+                  "
+                >
+                  <p
+                    style="
+                      color: var(--light-gray);
+                      font-size: 0.82rem;
+                      line-height: 1.5;
+                      margin: 0;
+                    "
+                  >
+                    <strong style="color: var(--white-2)"
+                      >Key Coursework:</strong
+                    >
+                    Machine Learning &nbsp;·&nbsp; Artificial Intelligence
+                    &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; Cyber Security
+                    &nbsp;·&nbsp; Parallel &amp; Distributed Computing
+                    &nbsp;·&nbsp; Applied Robotics &nbsp;·&nbsp; Data Structures
+                    &nbsp;·&nbsp; Design &amp; Analysis of Algorithms
+                  </p>
+                </div>
 
                 <div
                   class="thesis-section"
@@ -953,7 +1160,7 @@
                       font-size: 0.95rem;
                     "
                   >
-                    Final Year Project/Thesis:
+                    Final Year Project / Thesis:
                   </h5>
                   <h6
                     style="
@@ -975,31 +1182,12 @@
                       margin-bottom: 0.75rem;
                     "
                   >
-                    The proposed project aims to provide a solution to the
-                    scarcity of radiologists and lack of specialized training
-                    among medical professionals in diagnosing and treating wrist
-                    abnormalities in children, adolescents, and young adults.
-                    With the incidence rate of distal radius and ulna fractures
-                    being higher during puberty, timely and accurate diagnosis
-                    is crucial.
-                  </p>
-                  <p
-                    style="
-                      color: var(--light-gray);
-                      font-size: 0.85rem;
-                      line-height: 1.5;
-                      margin-bottom: 0.75rem;
-                    "
-                  >
-                    The project provides an automated system using object
-                    detection algorithms and computer vision techniques,
-                    enabling users to input pediatric wrist x-ray images and
-                    receive output indicating the presence and location of any
-                    anomalies. The research highlights the effectiveness of
-                    YOLOv8x in enhancing pediatric wrist imaging, achieving a
-                    fracture detection mean average precision (mAP) of 0.95 and
-                    an overall mAP of 0.77 on the GRAZPEDWRI-DX pediatric wrist
-                    dataset.
+                    Built an automated pediatric wrist fracture detection system
+                    using YOLOv8x on the GRAZPEDWRI-DX dataset, addressing the
+                    scarcity of radiologists in diagnosing distal radius and
+                    ulna fractures in children and adolescents. Achieved
+                    fracture detection <strong>mAP of 0.95</strong> and overall
+                    <strong>mAP of 0.77</strong>.
                   </p>
                   <div style="display: flex; gap: 1rem; flex-wrap: wrap">
                     <a
@@ -1014,11 +1202,10 @@
                         gap: 0.25rem;
                       "
                     >
-                      <ion-icon name="logo-github"></ion-icon>
-                      View Code
+                      <ion-icon name="logo-github"></ion-icon> View Code
                     </a>
                     <a
-                      href="https://huggingface.co/spaces/AbdulManaf12/wrist-anomaly-detection"
+                      href="https://huggingface.co/spaces/AbdulManafSahito/wrist-anomaly-detection"
                       target="_blank"
                       style="
                         color: var(--orange-yellow-crayola);
@@ -1029,292 +1216,421 @@
                         gap: 0.25rem;
                       "
                     >
-                      <ion-icon name="rocket-outline"></ion-icon>
-                      Live Demo
+                      <ion-icon name="rocket-outline"></ion-icon> Live Demo
+                    </a>
+
+                    <a
+                      href="https://doi.org/10.1016/j.bspc.2024.106144"
+                      target="_blank"
+                      style="
+                        color: var(--orange-yellow-crayola);
+                        text-decoration: none;
+                        font-size: 0.85rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                      "
+                    >
+                      <ion-icon name="rocket-outline"></ion-icon> Paper Link
                     </a>
                   </div>
                 </div>
-              </li>
 
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Bahria Foundation College, Mehrabpur
-                </h4>
-
-                <span
-                  data-start-date="2017-08"
-                  data-end-date="2019-06"
-                  class="dynamic-date"
-                  >FSc(Pre-Engineering) 2017 — 2019</span
+                <div
+                  style="
+                    margin-top: 0.75rem;
+                    padding: 0.6rem 0.75rem;
+                    background: linear-gradient(
+                      135deg,
+                      #f093fb 0%,
+                      #f5576c 100%
+                    );
+                    border-radius: 8px;
+                    color: white;
+                  "
                 >
-
-                <p class="timeline-text">Percentage= 71%</p>
+                  <p style="font-size: 0.82rem; margin: 0">
+                    🥈
+                    <strong>2nd Place — RoboWar Techfest</strong> &nbsp;·&nbsp;
+                    Competitive robotics &amp; engineering challenge
+                  </p>
+                </div>
               </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Bahria Foundation College, Mehrabpur
-                </h4>
 
-                <span
-                  data-start-date="2015-04"
-                  data-end-date="2017-03"
-                  class="dynamic-date"
-                  >Matriculation(Science) 2015 — 2017</span
-                >
-
-                <p class="timeline-text">Percentage= 77.4%</p>
+              <!-- FSc -->
+              <!-- <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Bahria Foundation College, Mehrabpur</h4>
+                <span data-start-date="2017-08" data-end-date="2019-06" class="dynamic-date">FSc (Pre-Engineering) 2017 — 2019</span>
+                <p class="timeline-text">Percentage: 71%</p>
               </li>
+        
+              <!-- Matric -->
+              <!-- <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Bahria Foundation College, Mehrabpur</h4>
+                <span data-start-date="2015-04" data-end-date="2017-03" class="dynamic-date">Matriculation (Science) 2015 — 2017</span>
+                <p class="timeline-text">Percentage: 77.4%</p>
+              </li>  -->
             </ol>
           </section>
 
+          <!-- ───────────────────────── EXPERIENCE ───────────────────────── -->
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
                 <ion-icon name="book-outline"></ion-icon>
               </div>
-
               <h3 class="h3">Experience</h3>
             </div>
 
             <ol class="timeline-list">
+              <!-- Junior Developer -->
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">
-                  Research Fellow - Norwegian University of Science and
-                  Technology (NTNU)
+                  Junior Developer — Sukkur IBA University (Sindh Government
+                  Projects)
                 </h4>
-
                 <span
-                  data-start-date="2025-01"
-                  data-end-date="2025-05"
-                  class="dynamic-date"
-                  >Jan 2025 - May 2025
-                  <i class="time-period-display"> · 4 mos</i></span
-                >
-
-                <p class="timeline-text">
-                  Selected as a Research Fellow at the Norwegian University of
-                  Science and Technology (NTNU) in Gjøvik, Norway, as part of
-                  the fully-funded NORPART-CONNECT Project. During this
-                  four-month exchange program, I am conducting cutting-edge
-                  research in Artificial Intelligence (AI), Machine Learning
-                  (ML), Deep Learning (DL), and Large Language Models (LLMs). My
-                  research focus spans multiple fields including education,
-                  medical imaging, and environmental applications, leveraging AI
-                  to solve real-world challenges. This opportunity allows me to
-                  collaborate with top-tier international researchers,
-                  contribute to AI-powered educational tools development, and
-                  foster global research collaborations that bridge technology
-                  and education.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Research Associate (Computer Vision Engineer) - Onsite
-                </h4>
-
-                <span
-                  data-start-date="2023-11"
+                  data-start-date="2025-11"
                   data-end-date="current"
                   class="dynamic-date"
-                  >Nov 2023 - Present
-                  <i class="time-period-display"> · 9 mos</i></span
                 >
-
+                  Nov 2025 – Present
+                  <i class="time-period-display"> · Remote, Gjøvik Norway</i>
+                </span>
                 <p class="timeline-text">
-                  In my capacity at Center of Excellence for Robotics, Artiﬁcial
-                  Intelligence, and Blockchain (CRAIB), Sukkur IBA, my primary
-                  role centers around my involvement in the Higher Education
-                  Commission of Pakistan (HEC) project on Post-Flood Disaster
-                  Management System, working under the supervision of my
-                  professor who has PHD in Machine Learning, Deep Learning, NLP,
-                  Text and Image Classiﬁcation. The project's core objective is
-                  the development of a cutting-edge system utilizing UAV devices
-                  for ﬂood rescue operations. Beyond conventional object
-                  detection, our emphasis is on implementing Visual Question
-                  Answering (VQA) techniques to facilitate inquiries related to
-                  speciﬁc details, such as the number of ﬂooded buildings.
-                  Furthermore, my responsibilities extend to actively supporting
-                  undergraduate students in their Final Year Projects (FYP) and
-                  robotics endeavors, contributing to a collaborative and
-                  knowledge-sharing environment.
+                  Working remotely from Gjøvik, Norway on government-scale
+                  digital solutions for Sindh province. Key contributions
+                  include: a complaint similarity module using AI techniques
+                  with AWS deployment; email automation workflows via n8n.io for
+                  sjp.org.pk candidate queries; and core development of the DEPD
+                  (Department of Empowerment of Persons with Disabilities)
+                  prototype — managing backend verification services, a
+                  notifications/announcements broadcasting module, and
+                  PostgreSQL database design.
                 </p>
               </li>
 
+              <!-- NTNU -->
+              <li class="timeline-item" id="ntnu">
+                <h4 class="h4 timeline-item-title">
+                  Student Researcher — Norwegian University of Science and
+                  Technology (NTNU)
+                </h4>
+                <span
+                  data-start-date="2025-01"
+                  data-end-date="2025-07"
+                  class="dynamic-date"
+                >
+                  Jan 2025 – Jul 2025
+                  <i class="time-period-display"> · 7 mos · Gjøvik, Norway</i>
+                </span>
+                <p class="timeline-text">
+                  Conducted research under the
+                  <strong
+                    >ISA (Intelligent Systems &amp; Analytics) Research
+                    Group</strong
+                  >
+                  led by Dr. Ali Shariq Imran, as part of the fully-funded
+                  NORPART-CONNECT Project.
+                </p>
+                <div
+                  style="
+                    margin-top: 0.75rem;
+                    padding: 1rem;
+                    background: var(--eerie-black-2);
+                    border-radius: 8px;
+                    border-left: 3px solid var(--orange-yellow-crayola);
+                  "
+                >
+                  <p
+                    style="
+                      color: var(--light-gray);
+                      font-size: 0.85rem;
+                      line-height: 1.6;
+                      margin: 0;
+                    "
+                  >
+                    <strong style="color: var(--white-2)"
+                      >Research Output 1:</strong
+                    >
+                    Co-authored peer-reviewed publication —
+                    <em
+                      >"Exploring the Impact of Self-Supervised Learning and
+                      Swin-B Transformer on Saliency Maps and Performance in
+                      Multi-Label Chest X-Ray Classification"</em
+                    >
+                    — Swin-B SSL model achieved <strong>AUC 0.83</strong> and
+                    <strong>IoU 0.16</strong> on CXR pathology detection.
+                    Developed an open-source web app for clinician use.
+                    <a
+                      href="https://ieeexplore.ieee.org/document/11357941"
+                      target="_blank"
+                      style="color: var(--orange-yellow-crayola)"
+                      >Paper Link</a
+                    >
+                    <br /><br />
+                    <strong style="color: var(--white-2)"
+                      >Research Output 2 (First Author):</strong
+                    >
+                    Developed <strong>EduRAG</strong> — a RAG-based educational
+                    chatbot framework benchmarking GPT-RAG, Gemini-RAG,
+                    LLaMA-RAG, Mistral-RAG &amp; DeepSeek-RAG across three
+                    university courses. GPT-RAG achieved highest answer
+                    relevancy (0.88–0.98); Gemini-RAG led on faithfulness
+                    (0.72–0.84).
+                    <em>Under Review — Discover Artificial Intelligence.</em>
+                    <br />
+                    <span
+                      style="
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        gap: 0.35rem;
+                        margin-top: 0.25rem;
+                      "
+                      ><a
+                        href="https://abdulmanaf.me/Student-Chatbot"
+                        target="_blank"
+                        style="
+                          color: var(--orange-yellow-crayola);
+                          flex-shrink: 0;
+                        "
+                        >Project Page</a
+                      ><span style="flex-shrink: 0">·</span
+                      ><a
+                        href="https://student-ai-navigator.vercel.app/"
+                        target="_blank"
+                        style="
+                          color: var(--orange-yellow-crayola);
+                          flex-shrink: 0;
+                        "
+                        >Live Demo</a
+                      ><span style="flex-shrink: 0">·</span
+                      ><a
+                        href="https://github.com/abdulmanafsahito/Student-Chatbot"
+                        target="_blank"
+                        style="
+                          color: var(--orange-yellow-crayola);
+                          flex-shrink: 0;
+                        "
+                        >Code</a
+                      ></span
+                    >
+                    <br /><br />
+                    Utilized <strong>HPC</strong> environments at NTNU for
+                    large-scale LLM training and inference. Actively
+                    participated in ISA Research Group gatherings and
+                    collaborative activities, and explored Norwegian culture
+                    across Oslo, Lillehammer, Hamar, Gjøvik &amp; Beitostølen.
+                  </p>
+                </div>
+              </li>
+
+              <!-- CRAIB -->
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">
-                  Machine Learning Engineer - Onsite
+                  Associate Researcher (Computer Vision Engineer) — CRAIB,
+                  Sukkur IBA University
                 </h4>
+                <span
+                  data-start-date="2023-11"
+                  data-end-date="2025-05"
+                  class="dynamic-date"
+                >
+                  Nov 2023 – May 2025
+                  <i class="time-period-display">
+                    · 1 yr 7 mos · Sukkur, Pakistan</i
+                  >
+                </span>
+                <p class="timeline-text">
+                  Contributed to the HEC-funded Post-Flood Disaster Management
+                  System project, developing deep learning and computer vision
+                  applications for UAV-based flood rescue operations and Visual
+                  Question Answering (VQA) for post-flood aerial image analysis.
+                  Built NLP models for hate speech detection with XAI (LIME)
+                  interpretation. Developed the Health IQ app integrating
+                  ChatGPT for medical symbol interpretation. Enhanced the
+                  Sensorkit robotics platform and mentored undergraduate
+                  students in FYPs and robotics initiatives.
+                </p>
+              </li>
 
+              <!-- ML Engineer -->
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">
+                  Machine Learning Engineer — FasTech Systems
+                </h4>
                 <span
                   data-start-date="2023-06"
                   data-end-date="2023-11"
                   class="dynamic-date"
-                  >Jun 2023 - Nov 2023
-                  <i class="time-period-display"> · 6 mos</i>
+                >
+                  Jun 2023 – Nov 2023
+                  <i class="time-period-display"> · 6 mos · Sukkur, Pakistan</i>
                 </span>
-
                 <p class="timeline-text">
-                  During my six months with the company, I have contributed to
-                  multiple innovative AI initiatives, including an AI-powered
+                  Contributed to multiple AI initiatives including an AI-powered
                   book creation platform, an intelligent hotel menu
                   recommendation system, and a real-time audio call sentiment
-                  analysis tool. Through these projects, I've applied machine
-                  learning algorithms, data processing techniques, and AI
-                  frameworks to address practical business challenges while
-                  delivering measurable improvements to both user experience and
-                  operational efficiency.
+                  analysis tool. Applied ML algorithms, data processing
+                  pipelines, and AI frameworks to deliver measurable
+                  improvements in user experience and operational efficiency.
                 </p>
               </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Researcher - Hybird</h4>
 
+              <!-- DeepNLP -->
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Researcher — DeepNLP.ai</h4>
                 <span
                   data-start-date="2022-11"
-                  data-end-date="2023-12"
+                  data-end-date="2023-09"
                   class="dynamic-date"
-                  >Nov 2022 - Dec 2023
-                  <i class="time-period-display"> · 1 yr 2 mos</i></span
                 >
-
+                  Nov 2022 – Sep 2023
+                  <i class="time-period-display"> · 11 mos · Hybrid</i>
+                </span>
                 <p class="timeline-text">
-                  In this full-time role, I am a dedicated member of the
-                  Deep-NLP research group, comprising researchers from Europe
-                  and Asia. Our group, led by university teachers, postdoc
-                  fellows, and experienced researchers, focuses on advancing
-                  Natural Language Processing (NLP) through deep neural
-                  networks. We collaborate closely with students and industry
-                  professionals to explore various applications of NLP,
-                  including sentiment analysis, text classification, machine
-                  translation, chatbots, and speech recognition. for more info
-                  you may visit its official page:
+                  Member of a multinational Deep-NLP research group (Europe
+                  &amp; Asia) led by university faculty and postdoc fellows.
+                  Collaborated on NLP research spanning sentiment analysis, text
+                  classification, machine translation, and chatbot development.
+                  Contributed to medical imaging research on automated wrist
+                  fracture detection.
                   <a
                     href="http://deep-nlp.net/"
                     target="_blank"
                     style="
-                      text-decoration: none;
-                      cursor: pointer;
                       color: var(--orange-yellow-crayola);
+                      text-decoration: none;
                     "
-                    >http://deep-nlp.net/</a
+                    >deep-nlp.net</a
                   >
                 </p>
               </li>
 
+              <!-- CodeClause -->
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">
-                  Data Science (Internee) - Remote
+                  Data Science Intern — CodeClause
                 </h4>
-
                 <span
                   data-start-date="2023-03"
                   data-end-date="2023-05"
                   class="dynamic-date"
-                  >Mar 2023 - May 2023
-                  <i class="time-period-display"> · 2 mos</i>
+                >
+                  Mar 2023 – May 2023
+                  <i class="time-period-display"> · 3 mos · Remote</i>
                 </span>
-
                 <p class="timeline-text">
-                  During my internship at CodeClause, I gained hands-on
-                  experience as a Data Science Intern, working on projects
-                  involving wine quality prediction and stock market prediction.
-                  I utilized machine learning algorithms, conducted exploratory
-                  data analysis, and implemented preprocessing techniques to
-                  build accurate predictive models. These experiences sharpened
-                  my skills in data analysis, model building, and optimization
-                  while showcasing my strong attention to detail and
-                  coordination abilities.
+                  Worked on wine quality prediction and stock market forecasting
+                  projects. Applied ML algorithms, exploratory data analysis,
+                  and preprocessing techniques to build predictive models,
+                  sharpening skills in data analysis, model building, and
+                  optimization.
                 </p>
               </li>
             </ol>
           </section>
 
+          <!-- ───────────────────────── SKILLS ───────────────────────── -->
           <section class="skill">
-            <h3 class="h3 skills-title">My Skills & Technologies</h3>
+            <h3 class="h3 skills-title">My Skills &amp; Technologies</h3>
 
-            <!-- AI/ML Core Skills -->
+            <!-- AI/ML Core -->
             <div class="skills-category">
               <h4 class="skills-category-title">
-                🤖 Artificial Intelligence & Machine Learning
+                🤖 Artificial Intelligence &amp; Machine Learning
               </h4>
               <div class="skills-tags">
                 <span class="skill-tag expert">Deep Learning</span>
                 <span class="skill-tag expert">Computer Vision</span>
+                <span class="skill-tag expert">Medical Image Analysis</span>
+                <span class="skill-tag expert"
+                  >Vision-Language Models (VLMs)</span
+                >
+                <span class="skill-tag expert">Object Detection</span>
                 <span class="skill-tag advanced">Machine Learning</span>
-                <span class="skill-tag expert">Neural Networks</span>
                 <span class="skill-tag advanced"
                   >Natural Language Processing</span
                 >
-                <span class="skill-tag expert">Object Detection</span>
-                <span class="skill-tag advanced">Medical Image Analysis</span>
-                <span class="skill-tag intermediate">Generative AI</span>
-                <span class="skill-tag expert">YOLO Models</span>
+                <span class="skill-tag advanced">RAG Systems</span>
+                <span class="skill-tag advanced"
+                  >Large Language Models (LLMs)</span
+                >
+                <span class="skill-tag advanced">Neural Networks</span>
+                <span class="skill-tag expert">YOLO Models (v5–v10)</span>
                 <span class="skill-tag advanced">CNNs</span>
-                <span class="skill-tag advanced">RNNs & LSTMs</span>
+                <span class="skill-tag advanced"
+                  >Transformer Architectures</span
+                >
                 <span class="skill-tag expert">Transfer Learning</span>
-                <span class="skill-tag advanced">Model Optimization</span>
+                <span class="skill-tag advanced">Self-Supervised Learning</span>
+                <span class="skill-tag advanced"
+                  >Model Fine-Tuning (LoRA / Full)</span
+                >
+                <span class="skill-tag intermediate">Generative AI</span>
                 <span class="skill-tag intermediate"
                   >Reinforcement Learning</span
                 >
               </div>
             </div>
 
-            <!-- Programming Languages -->
+            <!-- Programming -->
             <div class="skills-category">
               <h4 class="skills-category-title">💻 Programming Languages</h4>
               <div class="skills-tags">
                 <span class="skill-tag expert">Python</span>
                 <span class="skill-tag advanced">JavaScript</span>
+                <span class="skill-tag advanced">SQL</span>
+                <span class="skill-tag expert">HTML/CSS</span>
                 <span class="skill-tag intermediate">C++</span>
                 <span class="skill-tag intermediate">Java</span>
-                <span class="skill-tag advanced">SQL</span>
-                <span class="skill-tag intermediate">Assembly Language</span>
-                <span class="skill-tag expert">HTML/CSS</span>
                 <span class="skill-tag intermediate">R</span>
-                <span class="skill-tag beginner">Kotlin</span>
                 <span class="skill-tag beginner">MATLAB</span>
               </div>
             </div>
 
-            <!-- ML/AI Frameworks & Libraries -->
+            <!-- Frameworks -->
             <div class="skills-category">
-              <h4 class="skills-category-title">🛠️ Frameworks & Libraries</h4>
+              <h4 class="skills-category-title">
+                🛠️ Frameworks &amp; Libraries
+              </h4>
               <div class="skills-tags">
-                <span class="skill-tag expert">TensorFlow</span>
                 <span class="skill-tag expert">PyTorch</span>
+                <span class="skill-tag expert">TensorFlow</span>
                 <span class="skill-tag expert">OpenCV</span>
                 <span class="skill-tag advanced">Keras</span>
                 <span class="skill-tag expert">Scikit-learn</span>
-                <span class="skill-tag advanced">Pandas</span>
-                <span class="skill-tag advanced">NumPy</span>
-                <span class="skill-tag advanced">Matplotlib</span>
-                <span class="skill-tag intermediate">Seaborn</span>
-                <span class="skill-tag expert">YOLO (v5,v6,v7,v8,v9,v10)</span>
-                <span class="skill-tag advanced">Ultralytics</span>
-                <span class="skill-tag intermediate">Hugging Face</span>
-                <span class="skill-tag intermediate">LangChain</span>
-                <span class="skill-tag beginner">RAG Systems</span>
+                <span class="skill-tag advanced"
+                  >Hugging Face Transformers</span
+                >
+                <span class="skill-tag advanced">LangChain</span>
+                <span class="skill-tag advanced">Pandas / NumPy</span>
+                <span class="skill-tag advanced">Matplotlib / Seaborn</span>
                 <span class="skill-tag advanced">FastAPI</span>
-                <span class="skill-tag intermediate">Streamlit</span>
+                <span class="skill-tag advanced">Streamlit</span>
                 <span class="skill-tag advanced">Gradio</span>
+                <span class="skill-tag intermediate">n8n.io</span>
+                <span class="skill-tag intermediate">Prisma ORM</span>
               </div>
             </div>
 
             <!-- Cloud & DevOps -->
             <div class="skills-category">
-              <h4 class="skills-category-title">☁️ Cloud & DevOps</h4>
+              <h4 class="skills-category-title">☁️ Cloud &amp; DevOps</h4>
               <div class="skills-tags">
+                <span class="skill-tag advanced"
+                  >AWS (S3, EC2, deployment)</span
+                >
                 <span class="skill-tag intermediate"
                   >Google Cloud Platform</span
                 >
                 <span class="skill-tag intermediate">Docker</span>
-                <span class="skill-tag advanced">Git & GitHub</span>
-                <span class="skill-tag intermediate">AWS</span>
+                <span class="skill-tag expert">Git &amp; GitHub</span>
                 <span class="skill-tag advanced">Firebase</span>
-                <span class="skill-tag intermediate">Jupyter Notebooks</span>
-                <span class="skill-tag intermediate">Google Colab</span>
-                <span class="skill-tag beginner">MLflow</span>
-                <span class="skill-tag beginner">DVC</span>
+                <span class="skill-tag advanced">HPC (NTNU)</span>
+                <span class="skill-tag intermediate">PostgreSQL</span>
+                <span class="skill-tag intermediate">MLflow</span>
               </div>
             </div>
 
@@ -1324,51 +1640,55 @@
               <div class="skills-tags">
                 <span class="skill-tag expert">React.js</span>
                 <span class="skill-tag advanced">Node.js</span>
-                <span class="skill-tag expert">Bootstrap</span>
                 <span class="skill-tag advanced">Express.js</span>
+                <span class="skill-tag expert">Bootstrap</span>
                 <span class="skill-tag intermediate">MongoDB</span>
                 <span class="skill-tag intermediate">MySQL</span>
+                <span class="skill-tag advanced">REST APIs</span>
                 <span class="skill-tag expert">Responsive Design</span>
-                <span class="skill-tag intermediate">REST APIs</span>
-                <span class="skill-tag intermediate">GraphQL</span>
-                <span class="skill-tag advanced">UI/UX Design</span>
               </div>
             </div>
 
             <!-- Research & Academic -->
             <div class="skills-category">
-              <h4 class="skills-category-title">📚 Research & Academic</h4>
+              <h4 class="skills-category-title">📚 Research &amp; Academic</h4>
               <div class="skills-tags">
                 <span class="skill-tag expert">Research Methodology</span>
                 <span class="skill-tag expert">Academic Writing</span>
-                <span class="skill-tag expert">Data Analysis</span>
-                <span class="skill-tag expert">Statistical Analysis</span>
-                <span class="skill-tag advanced">Literature Review</span>
+                <span class="skill-tag expert"
+                  >Systematic Literature Review (PRISMA)</span
+                >
                 <span class="skill-tag expert">Experimental Design</span>
-                <span class="skill-tag advanced">Peer Review</span>
+                <span class="skill-tag advanced">Statistical Analysis</span>
+                <span class="skill-tag advanced">RAGAS Evaluation</span>
                 <span class="skill-tag expert">Conference Presentations</span>
-                <span class="skill-tag intermediate">Grant Writing</span>
+                <span class="skill-tag advanced">Peer Review</span>
               </div>
             </div>
 
-            <!-- Specialized Areas -->
+            <!-- Specialized Domains -->
             <div class="skills-category">
               <h4 class="skills-category-title">🎯 Specialized Domains</h4>
               <div class="skills-tags">
                 <span class="skill-tag expert">Medical Imaging</span>
+                <span class="skill-tag expert">Multimodal AI</span>
                 <span class="skill-tag expert">Fracture Detection</span>
-                <span class="skill-tag advanced">Flood Management Systems</span>
                 <span class="skill-tag expert">Pediatric Healthcare AI</span>
-                <span class="skill-tag advanced">Disaster Management</span>
-                <span class="skill-tag intermediate">UAV/Drone Technology</span>
-                <span class="skill-tag advanced">Post-Processing</span>
-                <span class="skill-tag expert">Data Preprocessing</span>
-                <span class="skill-tag advanced">Model Evaluation</span>
-                <span class="skill-tag expert">Performance Optimization</span>
+                <span class="skill-tag advanced"
+                  >Educational AI &amp; Chatbots</span
+                >
+                <span class="skill-tag advanced"
+                  >Disaster Management Systems</span
+                >
+                <span class="skill-tag advanced">UAV / Drone Technology</span>
+                <span class="skill-tag advanced">Explainable AI (XAI)</span>
+                <span class="skill-tag advanced"
+                  >Saliency Maps &amp; GradCAM</span
+                >
               </div>
             </div>
 
-            <!-- Soft Skills -->
+            <!-- Core Competencies -->
             <div class="skills-category">
               <h4 class="skills-category-title">🧠 Core Competencies</h4>
               <div class="skills-tags">
@@ -1376,10 +1696,9 @@
                 <span class="skill-tag expert">Critical Thinking</span>
                 <span class="skill-tag expert">Algorithm Design</span>
                 <span class="skill-tag expert">Team Collaboration</span>
-                <span class="skill-tag advanced">Project Management</span>
                 <span class="skill-tag expert">Mentoring</span>
+                <span class="skill-tag advanced">Project Management</span>
                 <span class="skill-tag advanced">Technical Documentation</span>
-                <span class="skill-tag expert">Code Review</span>
                 <span class="skill-tag advanced">Agile Methodology</span>
               </div>
             </div>
@@ -2707,7 +3026,7 @@
 
           <!-- Achievement Post -->
           <section class="achievement-post">
-            <div class="post-container">
+            <div class="post-container" id="ntnu-exchange">
               <!-- Image Slider -->
               <div class="post-image-slider">
                 <a href="https://norpart-connect.com/" target="_blank">
