@@ -157,20 +157,22 @@ function stopSlideShow() {
   clearInterval(slideInterval);
 }
 
-// Show specific slide
+// Show specific slide (NTNU slider only - scoped to #ntnu-exchange)
 function showSlide(index) {
-  const slides = document.querySelectorAll(".slide");
-  const indicators = document.querySelectorAll(".indicator");
+  const ntnuContainer = document.getElementById("ntnu-exchange");
+  if (!ntnuContainer) return;
+  const slides = ntnuContainer.querySelectorAll(".slide");
+  const indicators = ntnuContainer.querySelectorAll(".indicator");
 
   if (!slides.length) return; // Exit if no slides found
 
-  // Hide all slides
+  // Hide all slides in this slider only
   slides.forEach((slide) => slide.classList.remove("active"));
   indicators.forEach((indicator) => indicator.classList.remove("active"));
 
   // Show current slide
-  const currentSlide = document.querySelector(`[data-slide="${index}"]`);
-  const currentIndicator = document.querySelector(
+  const currentSlide = ntnuContainer.querySelector(`.slide[data-slide="${index}"]`);
+  const currentIndicator = ntnuContainer.querySelector(
     `.indicator[data-slide="${index}"]`,
   );
 
@@ -200,6 +202,37 @@ function currentSlide(index) {
   stopSlideShow();
   showSlide(index);
   startSlideShow();
+}
+
+// PM Laptop Scheme slider (3 slides, scoped to #pm-laptop-post)
+let pmLaptopSlideIndex = 1;
+const PM_LAPTOP_TOTAL_SLIDES = 3;
+
+function showSlidePmLaptop(index) {
+  const container = document.getElementById("pm-laptop-post");
+  if (!container) return;
+  const slides = container.querySelectorAll(".slide");
+  const indicators = container.querySelectorAll(".indicator");
+  if (!slides.length) return;
+  slides.forEach((s) => s.classList.remove("active"));
+  indicators.forEach((i) => i.classList.remove("active"));
+  const current = container.querySelector(`.slide[data-slide="${index}"]`);
+  const currentInd = container.querySelector(`.indicator[data-slide="${index}"]`);
+  if (current) current.classList.add("active");
+  if (currentInd) currentInd.classList.add("active");
+  pmLaptopSlideIndex = index;
+}
+
+function changeSlidePmLaptop(direction) {
+  pmLaptopSlideIndex += direction;
+  if (pmLaptopSlideIndex > PM_LAPTOP_TOTAL_SLIDES) pmLaptopSlideIndex = 1;
+  else if (pmLaptopSlideIndex < 1) pmLaptopSlideIndex = PM_LAPTOP_TOTAL_SLIDES;
+  showSlidePmLaptop(pmLaptopSlideIndex);
+}
+
+function currentSlidePmLaptop(index) {
+  showSlidePmLaptop(index);
+  pmLaptopSlideIndex = index;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -244,12 +277,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Initialize slider if switching to achievement page
       if (pageId === "achievement") {
         setTimeout(() => {
-          const slides = document.querySelectorAll(".slide");
-          if (slides.length > 0) {
+          const ntnuContainer = document.getElementById("ntnu-exchange");
+          if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
             currentSlideIndex = 1;
             showSlide(1);
             startSlideShow();
           }
+          showSlidePmLaptop(1); // Ensure PM Laptop slider shows first slide
         }, 100);
       } else {
         // Stop slideshow when leaving achievement page
@@ -265,10 +299,55 @@ document.addEventListener("DOMContentLoaded", function () {
   const achievementPage = document.querySelector(".achievement.active");
   if (achievementPage) {
     setTimeout(() => {
-      showSlide(1);
-      startSlideShow();
+      const ntnuContainer = document.getElementById("ntnu-exchange");
+      if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
+        showSlide(1);
+        startSlideShow();
+      }
+      showSlidePmLaptop(1); // Ensure PM Laptop slider shows first slide
     }, 100);
   }
+
+  // Handle hash links: switch to the page that contains the target, then scroll
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute("href");
+    const hash = href.slice(1);
+    if (!hash) return;
+    const targetEl = document.getElementById(hash);
+    if (!targetEl) return;
+    const targetPage = targetEl.closest("[data-page]");
+    if (!targetPage) return;
+    e.preventDefault();
+    const pageId = targetPage.dataset.page;
+    const isAchievement = pageId === "achievement";
+    const currentActive = document.querySelector("[data-page].active");
+    if (currentActive !== targetPage) {
+      pages.forEach((page) => {
+        page.classList.toggle("active", page === targetPage);
+      });
+      navigationLinks.forEach((navLink) => {
+        navLink.classList.toggle("active", navLink.getAttribute("data-nav-link") === pageId);
+      });
+      if (isAchievement) {
+        setTimeout(() => {
+          const ntnuContainer = document.getElementById("ntnu-exchange");
+          if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
+            currentSlideIndex = 1;
+            showSlide(1);
+            startSlideShow();
+          }
+          showSlidePmLaptop(1);
+        }, 100);
+      } else {
+        stopSlideShow();
+      }
+    }
+    setTimeout(function () {
+      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, currentActive === targetPage ? 0 : 150);
+  });
 
   // Add mouse hover events to pause/resume slideshow
   const sliderContainer = document.querySelector(".post-image-slider");
