@@ -3409,3 +3409,60 @@ article,
   color: hsl(200, 60%, 30%);
   border-color: hsla(200, 50%, 50%, 0.5);
 }
+
+/* Umrah travel chain variant */
+.travel-chain--umrah {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--jet);
+}
+
+.travel-chain--umrah .travel-chain-title {
+  color: hsl(140, 45%, 55%);
+}
+
+.travel-chain--umrah .travel-timeline::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    hsl(140, 45%, 55%) 5%,
+    var(--jet) 15%,
+    var(--jet) 85%,
+    hsl(140, 45%, 55%) 95%,
+    transparent
+  );
+}
+
+.travel-chain--umrah .travel-node::before {
+  background: hsl(140, 45%, 55%);
+  border-color: var(--eerie-black-1);
+  box-shadow: 0 0 0 4px hsla(140, 45%, 55%, 0.2);
+}
+
+.travel-chain--umrah .travel-node:hover::before {
+  box-shadow: 0 0 0 6px hsla(140, 45%, 55%, 0.35);
+}
+
+.travel-chain-badge--umrah {
+  background: linear-gradient(135deg, hsla(140, 45%, 55%, 0.2), hsla(140, 40%, 45%, 0.15));
+  color: hsl(140, 50%, 65%);
+  border: 1px solid hsla(140, 45%, 55%, 0.4);
+}
+
+.travel-chain--umrah .travel-node-country {
+  color: hsl(140, 45%, 60%);
+}
+
+[data-theme="light"] .travel-chain--umrah .travel-chain-title {
+  color: hsl(140, 50%, 35%);
+}
+
+[data-theme="light"] .travel-chain-badge--umrah {
+  background: hsla(140, 40%, 92%, 0.8);
+  color: hsl(140, 50%, 28%);
+  border-color: hsla(140, 45%, 55%, 0.5);
+}
+
+[data-theme="light"] .travel-chain--umrah .travel-node-country {
+  color: hsl(140, 50%, 32%);
+}
