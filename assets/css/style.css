@@ -3230,13 +3230,22 @@ article,
 }
 
 .travel-node-country {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
   color: var(--orange-yellow-crayola);
   font-size: var(--fs-8);
   font-weight: var(--fw-600);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 6px;
+}
+
+.travel-flag {
+  font-style: normal;
+  line-height: 1;
+  font-size: 1.2em;
 }
 
 .travel-node-route {
