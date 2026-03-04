@@ -4009,7 +4009,7 @@
                 </div>
 
                 <!-- Node 2: Poland -->
-                <div class="travel-node" data-country="poland">
+                <div class="travel-node" data-country="poland"> 
                   <div class="travel-node-connector"></div>
                   <div class="travel-node-card">
                     <div class="travel-node-img-wrap travel-node-slider" data-gallery="poland" data-count="5" data-alt="Poland – Katowice">
@@ -4436,6 +4436,79 @@
             });
           });
         })();
+
+        // Travel image popup – click image to show in popup
+        (function initTravelImagePopup() {
+          var popup = document.getElementById("travel-image-popup");
+          if (!popup) return;
+          var popupImg = popup.querySelector(".travel-popup-content img");
+          var closeBtn = popup.querySelector(".travel-popup-close");
+          var prevBtn = popup.querySelector(".travel-popup-prev");
+          var nextBtn = popup.querySelector(".travel-popup-next");
+          var popupSrcs = [];
+          var popupIndex = 0;
+
+          function openPopup(srcs, index) {
+            popupSrcs = srcs || [];
+            popupIndex = index || 0;
+            popupImg.src = popupSrcs[popupIndex] || "";
+            popupImg.alt = "Travel image " + (popupIndex + 1) + " of " + popupSrcs.length;
+            popup.classList.add("is-open");
+            popup.setAttribute("aria-hidden", "false");
+            prevBtn.style.visibility = popupSrcs.length > 1 ? "visible" : "hidden";
+            nextBtn.style.visibility = popupSrcs.length > 1 ? "visible" : "hidden";
+            document.body.style.overflow = "hidden";
+          }
+
+          function closePopup() {
+            popup.classList.remove("is-open");
+            popup.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+          }
+
+          function goPopupPrev() {
+            if (popupSrcs.length <= 1) return;
+            popupIndex = (popupIndex - 1 + popupSrcs.length) % popupSrcs.length;
+            popupImg.src = popupSrcs[popupIndex];
+            popupImg.alt = "Travel image " + (popupIndex + 1) + " of " + popupSrcs.length;
+          }
+
+          function goPopupNext() {
+            if (popupSrcs.length <= 1) return;
+            popupIndex = (popupIndex + 1) % popupSrcs.length;
+            popupImg.src = popupSrcs[popupIndex];
+            popupImg.alt = "Travel image " + (popupIndex + 1) + " of " + popupSrcs.length;
+          }
+
+          document.addEventListener("click", function (e) {
+            var img = e.target;
+            if (img.tagName !== "IMG") return;
+            var wrap = img.closest(".travel-node-img-wrap");
+            if (!wrap) return;
+            var slides = wrap.querySelectorAll(".travel-slider-slide img");
+            if (!slides.length) {
+              if (img.src) openPopup([img.src], 0);
+              return;
+            }
+            var srcs = Array.from(slides).map(function (s) { return s.src; }).filter(Boolean);
+            var idx = Array.from(slides).indexOf(img);
+            if (idx < 0) idx = 0;
+            openPopup(srcs, idx);
+          });
+
+          popup.addEventListener("click", function (e) {
+            if (e.target === popup) closePopup();
+          });
+          closeBtn.addEventListener("click", closePopup);
+          prevBtn.addEventListener("click", function (e) { e.stopPropagation(); goPopupPrev(); });
+          nextBtn.addEventListener("click", function (e) { e.stopPropagation(); goPopupNext(); });
+          document.addEventListener("keydown", function (e) {
+            if (!popup.classList.contains("is-open")) return;
+            if (e.key === "Escape") closePopup();
+            if (e.key === "ArrowLeft") goPopupPrev();
+            if (e.key === "ArrowRight") goPopupNext();
+          });
+        })();
       });
     </script>
 
@@ -4455,5 +4528,15 @@
       async
       src="//cdn.credly.com/assets/utilities/embed.js"
     ></script>
+
+    <!-- Travel image popup / lightbox -->
+    <div id="travel-image-popup" class="travel-popup" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image view">
+      <button type="button" class="travel-popup-close" aria-label="Close">&times;</button>
+      <button type="button" class="travel-popup-prev" aria-label="Previous image">&#8249;</button>
+      <button type="button" class="travel-popup-next" aria-label="Next image">&#8250;</button>
+      <div class="travel-popup-content">
+        <img src="" alt="" />
+      </div>
+    </div>
   </body>
 </html>
