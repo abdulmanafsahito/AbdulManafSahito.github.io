@@ -581,7 +581,7 @@
               </div>
 
               <!-- Top Languages -->
-              <div
+              <!-- <div
                 style="
                   background: #0d1117;
                   border-radius: 8px;
@@ -591,11 +591,11 @@
                 "
               >
                 <img
-                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=AbdulManafSahito&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&text_color=c9d1d9&title_color=58a6ff"
+                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=AbdulManaf12&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&text_color=c9d1d9&title_color=58a6ff"
                   alt="Abdul Manaf's Most Used Languages"
                   style="width: 100%; max-width: 100%; border-radius: 8px"
                 />
-              </div>
+              </div> -->
 
               <div style="text-align: center; margin-top: 1rem">
                 <a
@@ -2184,6 +2184,36 @@
                     <ion-icon name="logo-github"></ion-icon>
                     View Code
                   </a>
+                  <button
+                    type="button"
+                    class="research-gallery-trigger"
+                    data-research-gallery="fit_paper"
+                    style="
+                      color: var(--orange-yellow-crayola);
+                      background: transparent;
+                      border: 1px solid var(--orange-yellow-crayola);
+                      border-radius: 4px;
+                      font-size: 0.85rem;
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                      padding: 0.5rem 1rem;
+                      cursor: pointer;
+                      transition: all 0.3s ease;
+                    "
+                    onmouseover="
+                      this.style.backgroundColor =
+                        'var(--orange-yellow-crayola)';
+                      this.style.color = 'var(--eerie-black-1)';
+                    "
+                    onmouseout="
+                      this.style.backgroundColor = 'transparent';
+                      this.style.color = 'var(--orange-yellow-crayola)';
+                    "
+                  >
+                    <ion-icon name="images-outline"></ion-icon>
+                    View gallery
+                  </button>
                 </div>
               </li>
             </ol>
@@ -5285,6 +5315,91 @@
             if (e.key === "ArrowRight") goPopupNext();
           });
         })();
+
+        // Research / paper gallery popup – open on "View gallery" click
+        (function initResearchGalleryPopup() {
+          var researchGalleryImages = {
+            fit_paper: [
+              "./assets/images/research/fit_paper/1.JPG",
+              "./assets/images/research/fit_paper/2.JPG",
+              "./assets/images/research/fit_paper/3.jpg",
+            ],
+          };
+          var popup = document.getElementById("research-gallery-popup");
+          if (!popup) return;
+          var popupImg = popup.querySelector(".travel-popup-content img");
+          var closeBtn = popup.querySelector(".travel-popup-close");
+          var prevBtn = popup.querySelector(".travel-popup-prev");
+          var nextBtn = popup.querySelector(".travel-popup-next");
+          var popupSrcs = [];
+          var popupIndex = 0;
+
+          function openPopup(srcs, index) {
+            popupSrcs = srcs || [];
+            popupIndex = index || 0;
+            popupImg.src = popupSrcs[popupIndex] || "";
+            popupImg.alt =
+              "Image " + (popupIndex + 1) + " of " + popupSrcs.length;
+            popup.classList.add("is-open");
+            popup.setAttribute("aria-hidden", "false");
+            prevBtn.style.visibility =
+              popupSrcs.length > 1 ? "visible" : "hidden";
+            nextBtn.style.visibility =
+              popupSrcs.length > 1 ? "visible" : "hidden";
+            document.body.style.overflow = "hidden";
+          }
+
+          function closePopup() {
+            popup.classList.remove("is-open");
+            popup.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+          }
+
+          function goPrev() {
+            if (popupSrcs.length <= 1) return;
+            popupIndex =
+              (popupIndex - 1 + popupSrcs.length) % popupSrcs.length;
+            popupImg.src = popupSrcs[popupIndex];
+            popupImg.alt =
+              "Image " + (popupIndex + 1) + " of " + popupSrcs.length;
+          }
+
+          function goNext() {
+            if (popupSrcs.length <= 1) return;
+            popupIndex = (popupIndex + 1) % popupSrcs.length;
+            popupImg.src = popupSrcs[popupIndex];
+            popupImg.alt =
+              "Image " + (popupIndex + 1) + " of " + popupSrcs.length;
+          }
+
+          document.addEventListener("click", function (e) {
+            var el = e.target.closest("[data-research-gallery]");
+            if (!el) return;
+            e.preventDefault();
+            var key = el.getAttribute("data-research-gallery");
+            var srcs = researchGalleryImages[key];
+            if (srcs && srcs.length) openPopup(srcs, 0);
+          });
+
+          popup.addEventListener("click", function (e) {
+            if (e.target === popup) closePopup();
+          });
+          closeBtn.addEventListener("click", closePopup);
+          prevBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            goPrev();
+          });
+          nextBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            goNext();
+          });
+          document.addEventListener("keydown", function (e) {
+            if (!popup.classList.contains("is-open")) return;
+            if (e.key === "Escape") closePopup();
+            if (e.key === "ArrowLeft") goPrev();
+            if (e.key === "ArrowRight") goNext();
+          });
+        })();
       });
     </script>
 
@@ -5313,6 +5428,33 @@
       role="dialog"
       aria-modal="true"
       aria-label="Image view"
+    >
+      <button type="button" class="travel-popup-close" aria-label="Close">
+        &times;
+      </button>
+      <button
+        type="button"
+        class="travel-popup-prev"
+        aria-label="Previous image"
+      >
+        &#8249;
+      </button>
+      <button type="button" class="travel-popup-next" aria-label="Next image">
+        &#8250;
+      </button>
+      <div class="travel-popup-content">
+        <img src="" alt="" />
+      </div>
+    </div>
+
+    <!-- Research / paper gallery popup (FIT paper figures etc.) -->
+    <div
+      id="research-gallery-popup"
+      class="travel-popup"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Paper gallery"
     >
       <button type="button" class="travel-popup-close" aria-label="Close">
         &times;
