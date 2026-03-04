@@ -157,20 +157,20 @@ function stopSlideShow() {
   clearInterval(slideInterval);
 }
 
-// Show specific slide
+// Show specific slide (scoped to NTNU slider only)
 function showSlide(index) {
-  const slides = document.querySelectorAll(".slide");
-  const indicators = document.querySelectorAll(".indicator");
+  const container = document.getElementById("ntnu-slider-post");
+  if (!container) return;
+  const slides = container.querySelectorAll(".slide");
+  const indicators = container.querySelectorAll(".indicator");
 
-  if (!slides.length) return; // Exit if no slides found
+  if (!slides.length) return;
 
-  // Hide all slides
   slides.forEach((slide) => slide.classList.remove("active"));
   indicators.forEach((indicator) => indicator.classList.remove("active"));
 
-  // Show current slide
-  const currentSlide = document.querySelector(`[data-slide="${index}"]`);
-  const currentIndicator = document.querySelector(
+  const currentSlide = container.querySelector(`.slide[data-slide="${index}"]`);
+  const currentIndicator = container.querySelector(
     `.indicator[data-slide="${index}"]`,
   );
 
@@ -202,6 +202,53 @@ function currentSlide(index) {
   startSlideShow();
 }
 
+// PM Laptop achievement slider (scoped to #pm-laptop-post, 3 slides)
+let currentSlideIndexPmLaptop = 1;
+
+function showSlidePmLaptop(index) {
+  const container = document.getElementById("pm-laptop-post");
+  if (!container) return;
+  const slides = container.querySelectorAll(".slide");
+  const indicators = container.querySelectorAll(".indicator");
+  const total = slides.length;
+  if (!total) return;
+
+  const i = Math.max(1, Math.min(index, total));
+  slides.forEach((s) => s.classList.remove("active"));
+  indicators.forEach((ind) => ind.classList.remove("active"));
+  const slide = container.querySelector(`.slide[data-slide="${i}"]`);
+  const ind = container.querySelector(`.indicator[data-slide="${i}"]`);
+  if (slide) slide.classList.add("active");
+  if (ind) ind.classList.add("active");
+  currentSlideIndexPmLaptop = i;
+}
+
+function changeSlidePmLaptop(direction) {
+  const container = document.getElementById("pm-laptop-post");
+  if (!container) return;
+  const total = container.querySelectorAll(".slide").length;
+  if (!total) return;
+  currentSlideIndexPmLaptop += direction;
+  if (currentSlideIndexPmLaptop > total) currentSlideIndexPmLaptop = 1;
+  else if (currentSlideIndexPmLaptop < 1) currentSlideIndexPmLaptop = total;
+  showSlidePmLaptop(currentSlideIndexPmLaptop);
+}
+
+function currentSlidePmLaptop(index) {
+  showSlidePmLaptop(index);
+}
+
+// SEEF has a single slide; ensure it is shown (scoped to #seef-slider-post)
+function showSlideSeef(index) {
+  const container = document.getElementById("seef-slider-post");
+  if (!container) return;
+  const slides = container.querySelectorAll(".slide");
+  if (!slides.length) return;
+  slides.forEach((s) => s.classList.remove("active"));
+  const slide = container.querySelector(`.slide[data-slide="${index}"]`);
+  if (slide) slide.classList.add("active");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize dynamic dates first
   updateDynamicDates();
@@ -212,6 +259,55 @@ document.addEventListener("DOMContentLoaded", function () {
   // Select all navigation links and page elements
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   const pages = document.querySelectorAll("[data-page]");
+
+  // Helper: switch to a page by id and optionally scroll to element
+  function switchToPage(pageId, scrollToSelector) {
+    pages.forEach((page) => {
+      page.classList.toggle("active", page.dataset.page === pageId);
+    });
+    navigationLinks.forEach((navLink) => {
+      const linkPageId =
+        navLink.getAttribute("data-nav-link") ||
+        navLink.textContent.toLowerCase();
+      navLink.classList.toggle(
+        "active",
+        linkPageId === pageId || navLink.textContent.toLowerCase() === pageId
+      );
+    });
+    if (pageId === "achievement") {
+      setTimeout(() => {
+        const ntnuContainer = document.getElementById("ntnu-slider-post");
+        if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
+          currentSlideIndex = 1;
+          showSlide(1);
+          startSlideShow();
+        }
+        showSlidePmLaptop(1);
+        showSlideSeef(1);
+      }, 100);
+    } else {
+      stopSlideShow();
+    }
+    window.scrollTo(0, 0);
+    if (scrollToSelector) {
+      setTimeout(() => {
+        const el = document.querySelector(scrollToSelector);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    }
+  }
+
+  // Handle in-page hash links to achievement sections (e.g. #seef-scholarship)
+  document.addEventListener("click", function (e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || !a.hash) return;
+    const id = a.hash.slice(1);
+    const target = document.getElementById(id);
+    if (target && target.closest("[data-page='achievement']")) {
+      e.preventDefault();
+      switchToPage("achievement", "#" + id);
+    }
+  });
 
   // Add click event to all navigation links
   navigationLinks.forEach((link) => {
@@ -241,15 +337,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Initialize slider if switching to achievement page
+      // Initialize sliders if switching to achievement page
       if (pageId === "achievement") {
         setTimeout(() => {
-          const slides = document.querySelectorAll(".slide");
-          if (slides.length > 0) {
+          const ntnuContainer = document.getElementById("ntnu-slider-post");
+          if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
             currentSlideIndex = 1;
             showSlide(1);
             startSlideShow();
           }
+          showSlidePmLaptop(1);
+          showSlideSeef(1);
         }, 100);
       } else {
         // Stop slideshow when leaving achievement page
@@ -261,12 +359,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Initialize slider on page load if achievement is active
+  // Initialize sliders on page load if achievement is active
   const achievementPage = document.querySelector(".achievement.active");
   if (achievementPage) {
     setTimeout(() => {
-      showSlide(1);
-      startSlideShow();
+      const ntnuContainer = document.getElementById("ntnu-slider-post");
+      if (ntnuContainer && ntnuContainer.querySelectorAll(".slide").length > 0) {
+        showSlide(1);
+        startSlideShow();
+      }
+      showSlidePmLaptop(1);
+      showSlideSeef(1);
     }, 100);
   }
 
