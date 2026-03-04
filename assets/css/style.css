@@ -3306,9 +3306,13 @@ article,
 .travel-node-img-wrap {
   position: relative;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
+  height: 240px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--eerie-black-2) 0%, var(--onyx) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .travel-node-img-wrap.no-img {
@@ -3326,12 +3330,143 @@ article,
 .travel-node-img-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
   transition: var(--transition-2);
 }
 
-.travel-node-card:hover .travel-node-img-wrap img {
+.travel-node-card:hover .travel-node-img-wrap:not(.travel-node-slider) img {
   transform: scale(1.08);
+}
+
+/* Travel card slider – load all images from folder */
+.travel-node-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.travel-slider-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  position: relative;
+}
+
+.travel-slider-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--eerie-black-2) 0%, var(--onyx) 100%);
+}
+
+.travel-slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.travel-slider-slide img[src=""],
+.travel-slider-slide img.load-failed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.travel-slider-slide.no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--eerie-black-2) 0%, var(--onyx) 100%);
+}
+
+.travel-slider-slide.no-img::after {
+  content: "📷";
+  font-size: 48px;
+  opacity: 0.4;
+}
+
+.travel-node-slider .travel-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: hsla(0, 0%, 0%, 0.5);
+  color: var(--white-1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: var(--transition-1);
+  opacity: 0;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.travel-node-slider:hover .travel-slider-btn {
+  opacity: 1;
+}
+
+.travel-slider-btn:hover {
+  background: hsla(0, 0%, 0%, 0.75);
+  color: var(--orange-yellow-crayola);
+}
+
+.travel-slider-prev {
+  left: 10px;
+}
+
+.travel-slider-next {
+  right: 10px;
+}
+
+.travel-slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.travel-node-slider:hover .travel-slider-dots {
+  opacity: 1;
+}
+
+.travel-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsla(0, 0%, 100%, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.travel-slider-dot.is-active {
+  background: var(--orange-yellow-crayola);
+  transform: scale(1.2);
+}
+
+.travel-node-slider[data-count="1"] .travel-slider-btn,
+.travel-node-slider[data-count="1"] .travel-slider-dots {
+  display: none;
 }
 
 .travel-node-body {
@@ -3499,7 +3634,8 @@ article,
   }
 
   .travel-node-img-wrap {
-    height: 180px;
+    height: 220px;
+    min-height: 180px;
   }
 
   .travel-node-body {
