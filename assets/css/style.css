@@ -1722,6 +1722,10 @@ article,
   .blog-banner-box {
     height: auto;
   }
+
+  .project-img.live-demo {
+    height: 200px;
+  }
 }
 
 /**
